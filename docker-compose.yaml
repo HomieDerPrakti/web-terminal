@@ -1,6 +1,6 @@
 services:
   ubuntu-terminal:
-    build: ./ubuntu_bash
+    image: ghcr.io/homiederprakti/web-terminal/web-terminal:v1
     container_name: ubuntu_bash
     command: ttyd -W bash
     ports:
