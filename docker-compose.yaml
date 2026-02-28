@@ -1,6 +1,6 @@
 services:
   ubuntu-terminal:
-    image: tsl0922/ttyd:latest
+    build: ./ubuntu_bash
     container_name: ubuntu_bash
     command: ttyd -W bash
     ports:
@@ -14,6 +14,6 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./nginx/index.html:/usr/share/nginx/html/index.html:Z
+      - ./nginx:/usr/share/nginx/html:Z
     depends_on:
       - ubuntu-terminal
