@@ -1,0 +1,19 @@
+services:
+  ubuntu-terminal:
+    image: tsl0922/ttyd:latest
+    container_name: ubuntu_bash
+    command: ttyd -W bash
+    ports:
+      - "7681:7681"
+    tty: true
+    stdin_open: true
+
+  webserver:
+    image: nginx:alpine
+    container_name: web_portal
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/index.html:/usr/share/nginx/html/index.html:Z
+    depends_on:
+      - ubuntu-terminal
